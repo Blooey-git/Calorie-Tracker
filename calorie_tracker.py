@@ -62,7 +62,7 @@ while not done:
         fig.tight_layout()
         plt.show()
 
-elif choice == "q":
-    done = True
-else:
-    print("Invalid Choice!")
+    elif choice == "q":
+        done = True
+    else:
+        print("Invalid Choice!")
