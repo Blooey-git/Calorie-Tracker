@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from numpy import *
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -55,9 +55,9 @@ while not done:
         axs[0, 1].set_title("Macronutrients Progress")
         axs[1, 0].pie([calorie_sum, CALORIE_GOAL_LIMIT - calorie_sum], labels =["Calories", "Remaining"], autopct = "%1.1f%%")
         axs[1, 0].set_title("Calories Goal Progress")
-        axs[1, 1].plot(list(range(len(today))), np.cumsum([foods.calories for food in today]), label = "Calories Eaten")
+        axs[1, 1].plot(list(range(len(today))), np.cumsum([food.calories for food in today]), label = "Calories Eaten")
         axs[1, 1].plot(list(range(len(today))), [CALORIE_GOAL_LIMIT] * len(today), label = "Calories Goal")
-        axs[1, 1].setlegend()
+        axs[1, 1].legend()
         axs[1, 1].set_title("Calories Goal Over Time")
         fig.tight_layout()
         plt.show()
